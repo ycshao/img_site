@@ -1,0 +1,12 @@
+<html>
+<body>
+	<h1>PICTURE UPLOADER DEMO</h1>
+	<form method="post" enctype="multipart/form-data" action=".">{% csrf_token %}
+		{{ form.as_table }}
+		<!-- 
+		<p>Please choose a picture: <input type="file" name="title" value="File value" id="title"/>
+		-->
+		<p><input type="submit" value="Upload"/></p>
+	</form>	
+</body>
+</html>
