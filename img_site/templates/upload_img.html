@@ -1,12 +1,17 @@
 <html>
 <body>
 	<h1>PICTURE UPLOADER DEMO</h1>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<!-- External CSS File -->
+	<link rel="stylesheet" href="/media/style.css">
 	<form method="post" enctype="multipart/form-data" action=".">{% csrf_token %}
 		{{ form.as_table }}
 		<!-- 
 		<p>Please choose a picture: <input type="file" name="title" value="File value" id="title"/>
 		-->
-		<p><input type="submit" value="Upload"/></p>
+		<fieldset>
+			<input type="submit" value="Upload" id="upload_btn"/>
+		</fieldset>
 	</form>	
 </body>
 </html>
