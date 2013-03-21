@@ -10,7 +10,7 @@ from img_site.img_uploader.models import PictureFile
 
 class  UploadFileForm(forms.Form):
 	title = forms.CharField(max_length=50)
-	file = forms.FileField(label='Select a picture', help_text='max. 42 megatbytes')
+	file = forms.FileField(label='Select a picture',help_text=r"No larger than 2MB please.")
 
 
 def upload(request):
