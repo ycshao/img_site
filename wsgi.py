@@ -17,10 +17,10 @@ import os
 import os.path
 import sys
 
-sys.path.append(r'/usr/local/lib/Python/2.7/site-packages/')
-sys.path.append(r'/srv/img_site')
+sys.path.append(os.path.join(os.path.dirname(__file__)))
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'img_site.settings'
+#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "img_site.settings_production")
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 #application = django.core.handlers.wsgi.WSGIHandler()
