@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="/media/style.css" />
+	</head>
+<body>
+	<h1>PICTURE UPLOADER DEMO</h1>
+	<h2>===== Photo List =====</h2>
+	{% if photos %}
+		<ul class="photo_list">
+			{% for photo in photos %}
+				<li>
+					<a href="{{ path }}{{ photo.picFile }}" class="photolink"> 
+						{{ photo.title }} 		
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	<br />
+	<h2>===== Dynamic Photo List =====</h2>
+	{% if photos %}
+		<ul class="photo_list">
+			{% for photo in photos %}
+				<li>
+					<a href="/img_list/{{ photo.title }} " class="photolink"> 
+						{{ photo.title }} 		
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+</body>
+</html>
