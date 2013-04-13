@@ -50,7 +50,7 @@ fieldset input {
   	margin: 0px auto;
 	width: auto;
 }
-#upload_btn, #select_btn {
+#upload_btn {
   	background: -webkit-linear-gradient(top, #687587, #404853);
 	background: -moz-linear-gradient(top, #687587, #404853);
 	background: -ms-linear-gradient(top, #687587, #404853);

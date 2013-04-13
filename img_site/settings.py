@@ -5,7 +5,6 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
 	#('Hunter Lin', 'lnhote@gmail.com'),
 )
 
@@ -92,12 +91,10 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
-FILE_UPLOAD_TEMP_DIR = (
-	os.path.join(os.path.dirname(__file__), 'upload/').replace('\\','/'),
-	
-)
+FILE_UPLOAD_TEMP_DIR = os.path.join(os.path.dirname(__file__), "temp")
 
-#FILE_UPLOAD_PERMISSIONS:
+#FILE_UPLOAD_MAX_MEMORY_SIZE =  209715200 # bytes
+#FILE_UPLOAD_PERMISSIONS = None
 
 FILE_UPLOAD_HANDLERS = (
 	'django.core.files.uploadhandler.MemoryFileUploadHandler',

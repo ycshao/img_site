@@ -19,23 +19,16 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('img_site.views',
-    # Examples:
     # url(r'^$', 'img_site.views.home', name='home'),
-    url(r'^$', 'home'),
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
 )
+#URL map:
+#/			home page		
+#/upload	upload user's own image/video
+#			
 urlpatterns += patterns('img_site.img_uploader.views',
-    # Examples:
-    # url(r'^$', 'img_site.views.home', name='home'),
-	url(r'^upload/', 'upload'),
-	url(r'^display/', 'display_img'),
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+	url(r'^$', 'upload'),
+	url(r'^upload$', 'upload'),
+	url(r'^display$', 'display_img'),
+	url(r'^img_list$', 'img_list'),
+	url(r'^img_list/([^\s]+)$', 'img_detail'),
 )

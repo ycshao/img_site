@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<!-- External CSS File -->
 	<link rel="stylesheet" href="/media/style.css">
-	<form method="post" enctype="multipart/form-data" action=".">{% csrf_token %}
+	<form method="post" enctype="multipart/form-data" action="/upload">{% csrf_token %}
 		{{ form.as_table }}
 		<!-- 
 		<p>Please choose a picture: <input type="file" name="title" value="File value" id="title"/>
@@ -13,5 +13,6 @@
 			<input type="submit" value="Upload" id="upload_btn"/>
 		</fieldset>
 	</form>	
+	<a href="/img_list">View Photos</a>
 </body>
 </html>
