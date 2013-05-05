@@ -71,7 +71,10 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    '/static/admin/', '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/',
 )
+
+ADMIN_STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static/admin/'
 
 # List of finder classes that know how to find static files in
 # various locations.
