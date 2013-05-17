@@ -19,7 +19,7 @@ def save_upload_file(f):
 	#f.name()
 	#f.size()
 	uploadPath = MEDIA_ROOT + '/upload/'
-	destination = open(uploadPath+f.name, 'wb+')
+	destination = open(uploadPath+f.name.replace(' ', '_'), 'wb+')
 	for chunk in f.chunks():
 		destination.write(chunk)
 	destination.close()
@@ -31,9 +31,9 @@ def upload(request):
 		form = UploadFileForm(request.POST, request.FILES)
 		if form.is_valid():
 			save_upload_file(request.FILES['file'])
-			picDoc = PictureFile(picFile=request.FILES['file'], title=request.POST['title'])
+			picDoc = PictureFile(picFile=request.FILES['file'].name.replace(' ', '_'), title=request.POST['title'])
 			picDoc.save()
-			file_url = '/media/upload/' + request.FILES['file'].name
+			file_url = '/media/upload/' + request.FILES['file'].name.replace(' ', '_')
 			#return HttpResponse(file_url)
 			return HttpResponseRedirect(file_url)
 		else:
