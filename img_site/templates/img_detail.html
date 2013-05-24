@@ -1,0 +1,13 @@
+<html>
+<head>
+	{% include 'css_links.html' %}
+</head>
+<body>
+	{% include 'topbar.html' %}
+	<div id="main">
+		<div class="twitter_frame">
+			<img src="{{ img_dir }}{{ photo.picFile }}" class="img-polaroid"/> {{ photo.title }}
+		</div>
+	</div>
+</body>
+</html>

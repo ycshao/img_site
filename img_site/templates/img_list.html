@@ -1,33 +1,19 @@
 <html>
-	<head>
-		<link rel="stylesheet" href="/media/style.css" />
-	</head>
+<head>
+	{% include 'css_links.html' %}
+</head>
 <body>
-	<h1>PICTURE UPLOADER DEMO</h1>
-	<h2>===== Photo List =====</h2>
-	{% if photos %}
-		<ul class="photo_list">
+	{% include 'topbar.html' %}
+	<div id="main">
+		{% if photos %}
 			{% for photo in photos %}
-				<li>
-					<a href="{{ path }}{{ photo.picFile }}" class="photolink"> 
-						{{ photo.title }} 		
+				<div class="twitter_frame">
+					<a href="/img_detail/{{ photo.id }}"> 
+						<img src="{{ img_dir }}{{ photo.picFile }}" class="img-polaroid"/> {{ photo.title }}
 					</a>
-				</li>
+				</div>
 			{% endfor %}
-		</ul>
-	{% endif %}
-	<br />
-	<h2>===== Dynamic Photo List =====</h2>
-	{% if photos %}
-		<ul class="photo_list">
-			{% for photo in photos %}
-				<li>
-					<a href="/img_list/{{ photo.title }} " class="photolink"> 
-						{{ photo.title }} 		
-					</a>
-				</li>
-			{% endfor %}
-		</ul>
-	{% endif %}
+		{% endif %}
+	</div>
 </body>
 </html>

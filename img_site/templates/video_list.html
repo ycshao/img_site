@@ -1,0 +1,21 @@
+<html>
+<head>
+	{% include 'css_links.html' %}
+</head>
+<body>
+	{% include 'topbar.html' %}
+	<div id="main">
+		{% if videos %}
+			{% for video in videos %}
+				<div class="twitter_frame">
+					<a href="/video_detail/{{ video.id }}"> 
+						<video width="320" height="240" controls>
+						<source src="{{ video_dir }}{{ video.picFile }}"/> videos: {{ video.title }}
+						</video>
+					</a>
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+</body>
+</html>

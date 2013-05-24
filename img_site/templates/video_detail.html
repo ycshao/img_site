@@ -1,0 +1,15 @@
+<html>
+<head>
+	{% include 'css_links.html' %}
+</head>
+<body>
+	{% include 'topbar.html' %}
+	<div id="main">
+		<div class="twitter_frame">
+			<video width="320" height="240" controls>
+			<source src="{{ video_dir }}{{ video.picFile }}"/> {{ video.title }}
+			</video>
+		</div>
+	</div>
+</body>
+</html>
