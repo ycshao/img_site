@@ -1,6 +1,4 @@
-# Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
-from django.template.loader import get_template
 from django.template import Context
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
@@ -8,6 +6,7 @@ from django.core.context_processors import csrf
 from django import forms
 from img_site.img_uploader.models import PictureFile
 from img_site.settings import *
+import pdb
 
 class  UploadFileForm(forms.Form):
 	title = forms.CharField(max_length=50)
@@ -18,12 +17,16 @@ def save_upload_file(f):
 	#f.read() 
 	#f.name()
 	#f.size()
-	uploadPath = MEDIA_ROOT + '/upload/'
-	destination = open(uploadPath+f.name, 'wb+')
+	destination = open(IMG_UPLOAD_PATH +f.name, 'wb+')
 	for chunk in f.chunks():
 		destination.write(chunk)
 	destination.close()
-	
+
+def multiple_upload(request):
+	"""docstring for multiple_upload"""
+	for	f in request.FILES.getlist('file'):
+		save_upload_file(f)
+		
 def upload(request):
 	c = {}
 	c.update(csrf(request))
@@ -31,11 +34,12 @@ def upload(request):
 		form = UploadFileForm(request.POST, request.FILES)
 		if form.is_valid():
 			save_upload_file(request.FILES['file'])
-			picDoc = PictureFile(picFile=request.FILES['file'], title=request.POST['title'])
-			picDoc.save()
-			file_url = '/media/upload/' + request.FILES['file'].name
-			#return HttpResponse(file_url)
-			return HttpResponseRedirect(file_url)
+			new_img = PictureFile(picFile=request.FILES['file'], title=request.POST['title'])
+			new_img.save()
+			#redirect_url = IMG_UPLOAD_URL + request.FILES['file'].name
+			redirect_url = '/img_detail/%s' % new_img.id
+			#return HttpResponse(redirect_url)
+			return HttpResponseRedirect(redirect_url)
 		else:
 			return HttpResponse("form is not valid")
 		#if 'img_file' in request.POST:
@@ -44,23 +48,43 @@ def upload(request):
 		form = UploadFileForm()
 		c['form'] = form
 		return render_to_response('upload_img.html', c)
-		
-def display_img(request):
-	return HttpResponseRedirect('/media/sample.JPG') #for test
 	
-def img_list(request):
-	photo_objs = PictureFile.objects.all()
-	path = '/media/'
-	return render_to_response('img_list.html', {'photos':photo_objs, 'path': path})
+def video_list(request):
+	all_objs = PictureFile.objects.all()
+	video_objs = []
+	for obj in all_objs:
+		path, ext = os.path.splitext(obj.picFile.name)
+		if ext in ['.avi','.mp4','.rmvb','.m4v', '.mov', '.wmv', '.mpeg']:
+			video_objs.append(obj)
+	return render_to_response('video_list.html', {'videos':video_objs, 'video_dir':MEDIA_URL})
 
-def img_detail(request, img_title):
+def img_list(request):
+	all_objs = PictureFile.objects.all()
+	photo_objs = []
+	for obj in all_objs:
+		path, ext = os.path.splitext(obj.picFile.name)
+		if ext in ['.jpg','.jpeg','.gif','.bmp']:
+			photo_objs.append(obj)
+	return render_to_response('img_list.html', {'photos':photo_objs, 'img_dir': MEDIA_URL})
+	
+def img_detail(request, img_id):
+	#to retrieve single object
+	try:
+		photo = PictureFile.objects.get(id=img_id)
+		return render_to_response('img_detail.html', {'photo':photo, 'img_dir':MEDIA_URL})
+	except PictureFile.DoesNotExist:
+		return HttpResponseRedirect(r"/404.html")
+
+def video_detail(request, video_id):
+	#to retrieve single object
+	try:
+		video = PictureFile.objects.get(id=video_id)
+		return render_to_response('video_detail.html', {'video':video, 'video_dir': MEDIA_URL})
+	except PictureFile.DoesNotExist:
+		return HttpResponseRedirect(r"/404.html")
+					
+#for test		
+def display_img(request):
 	#photos = PictureFile.objects.filter(title=img_title)
 	#photos = PictureFile.objects.filter(title__contains=img_title)
-	
-	#to retrieve single object
-	photo = PictureFile.objects.get(title=img_title)
-	if photo:
-		file_url = "/media/" + str(photo.picFile)
-		return HttpResponseRedirect(file_url)
-	else:
-		return HttpResponseRedirect("/404.html")
+	return HttpResponseRedirect('/media/sample.JPG') 
