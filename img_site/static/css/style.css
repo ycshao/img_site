@@ -1,0 +1,164 @@
+/*
+========================================
+global
+----------------------------------------
+*/
+#main {
+	margin: 60px auto;
+}
+
+.frame {
+	border: 1px solid gray;
+	width: 400px;
+	height: 300px;
+	padding: 30px;
+	margin: 10px;
+	
+	float: left;
+	box-shadow: 3px 3px 10px gray;
+}
+.twitter_frame {
+	width: 350px;
+	height: 250px;
+	margin: 20px;
+	float: left;
+}
+
+h1 {
+	display: block;
+	background: #666666;
+	width: 440px;
+	padding: 30px;
+	margin: 20px auto;
+	font: bold 55px/100% "微软雅黑", "Lucida Grande", "Lucida Sans", Helvetica, Arial, Sans;;
+	color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+	/*NEON effect*/
+	/*text-shadow: 0 0 20px red;*/
+	/*multiple NEON effect*/
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de;
+}
+
+button a {
+	color: white;
+	text-decoration: none;
+}
+button a:hover {
+	color: white;
+	text-decoration: none;
+}
+/*
+========================================
+top bar
+----------------------------------------
+*/
+#topbar {
+	position: fixed;
+	left:0px;
+	top:0px;
+
+	height: 40px;
+	width: 100%;
+
+	box-shadow: 0px 2px 10px gray;
+	background: #66ccff;
+	padding: 8px 5px 0px 5px;/*up, right, down, left*/
+	clear: both;
+}
+#topbar form {
+	float: right;
+	margin: 0px 20px 0px 5px;/*up, right, down, left*/
+}
+
+/*
+========================================
+upload form
+----------------------------------------
+*/
+#upload_form {
+	margin: 300px 300px;
+}
+#upload_form form {
+	box-shadow: 0px 0px 20px gray;
+	border: 1px solid #d0d2d5;
+	border-bottom: 1px solid #bebfc2;
+	border-radius: 10px;
+	padding: 20px;
+	width: 412px;
+  	background: -webkit-linear-gradient(top, #fff, #bbbbbb);
+	background: -moz-linear-gradient(top, #fff, #bbbbbb);
+	background: -ms-linear-gradient(top, #fff, #bbbbbb);
+	background: -o-linear-gradient(top, #fff, #bbbbbb);  	
+	
+}
+#upload_form label {
+	color: #404853;
+	display: block;
+	font-weight: bold;
+}
+#upload_form input {
+  	background: #fff;
+	border: 1px solid #c6c9cc;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 0 #fff;
+	color: #555;
+	font: 13px/20px 'Droid Sans', Arial, 'Helvetica Neue', 'Lucida Grande', sans-serif;
+	margin: 0 0 20px 0;
+	padding: 5px;
+	width: 400px;
+}
+#upload_form fieldset {
+  	background: -webkit-linear-gradient(top, #ebeced, #dedfe0);
+	background: -moz-linear-gradient(top, #ebeced, #dedfe0);
+	background: -ms-linear-gradient(top, #ebeced, #dedfe0);
+	background: -o-linear-gradient(top, #ebeced, #dedfe0);
+	border: none;
+	border-top: 1px solid #d0d2d5;
+	border-radius: 0 0 4px 4px;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+	margin: 5px 0 -20px -20px;
+	padding: 18px 20px;
+	width: 412px
+}
+#upload_form fieldset input {
+  	margin: 0px auto;
+	width: auto;
+}
+#upload_form fieldset label {
+	color: #888;
+  	cursor: pointer;
+	float: left;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 5px 0 0 20px;
+}
+#upload_form fieldset label input {
+  	margin: -2px 2px 0 0;
+	padding: 0;
+}
+
+#upload_btn {
+  	background: -webkit-linear-gradient(top, #687587, #404853);
+	background: -moz-linear-gradient(top, #687587, #404853);
+	background: -ms-linear-gradient(top, #687587, #404853);
+	background: -o-linear-gradient(top, #687587, #404853);
+	margin: 0px auto;
+	border: none;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.75);
+	color: #fff;
+	font-weight: bold;
+	float: left;
+	padding: 5px 10px;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
+}
+#upload_btn:hover {
+	background: -webkit-linear-gradient(top, #5a6675, #333942);
+	background: -moz-linear-gradient(top, #5a6675, #333942);
+	background: -ms-linear-gradient(top, #5a6675, #333942);
+	background: -o-linear-gradient(top, #5a6675, #333942);
+}
+#upload_btn:active {
+	background: #333942;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.75), 0 1px 0 rgba(255, 255, 255, 0.75);
+}
