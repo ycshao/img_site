@@ -1,18 +1,22 @@
 <html>
+<head>
+	{% include 'css_links.html' %}
+</head>
 <body>
-	<h1>PICTURE UPLOADER DEMO</h1>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<!-- External CSS File -->
-	<link rel="stylesheet" href="/media/style.css">
-	<form method="post" enctype="multipart/form-data" action="/upload">{% csrf_token %}
-		{{ form.as_table }}
-		<!-- 
-		<p>Please choose a picture: <input type="file" name="title" value="File value" id="title"/>
-		-->
-		<fieldset>
-			<input type="submit" value="Upload" id="upload_btn"/>
-		</fieldset>
-	</form>	
-	<a href="/img_list">View Photos</a>
+	{% include 'topbar.html' %}
+	<div id="main">
+		<div id="upload_form">
+		<form  method="post" enctype="multipart/form-data" action="/upload/">
+			{% csrf_token %}
+			{{ form.as_table }}
+			<!-- 
+			<p>Please choose a picture: <input type="file" name="title" value="File value" id="title"/>
+			-->
+			<fieldset>
+				<input type="submit" value="Upload" id="upload_btn"/>
+			</fieldset>
+		</form>	
+		</div>
+	</div>
 </body>
 </html>
