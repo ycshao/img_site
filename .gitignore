@@ -20,3 +20,7 @@ img_site/urls.pyc
 *.html~
 
 *.css~
+
+img_site/media/upload/P794-50-72915.jpg
+
+*.jpg
