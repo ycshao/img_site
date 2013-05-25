@@ -1,0 +1,22 @@
+
+.DS_Store
+
+*.tmproj
+
+*.m4v
+
+design spec
+
+*.DS_Store
+
+*.mp4
+
+*.pyc
+
+img_site/urls.pyc
+
+*.py~
+
+*.html~
+
+*.css~
