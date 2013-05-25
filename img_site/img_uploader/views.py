@@ -17,7 +17,7 @@ def save_upload_file(f):
 	#f.read() 
 	#f.name()
 	#f.size()
-	destination = open(IMG_UPLOAD_PATH +f.name, 'wb+')
+	destination = open(IMG_UPLOAD_PATH + f.name, 'wb+')
 	for chunk in f.chunks():
 		destination.write(chunk)
 	destination.close()
@@ -33,8 +33,10 @@ def upload(request):
 	if request.method == 'POST':
 		form = UploadFileForm(request.POST, request.FILES)
 		if form.is_valid():
-			save_upload_file(request.FILES['file'])
-			new_img = PictureFile(picFile=request.FILES['file'], title=request.POST['title'])
+			f = request.FILES['file'];
+			f.name.replace(' ', '_');
+			save_upload_file(f)
+			new_img = PictureFile(picFile=f, title=request.POST['title'])
 			new_img.save()
 			#redirect_url = IMG_UPLOAD_URL + request.FILES['file'].name
 			redirect_url = '/img_detail/%s' % new_img.id
@@ -82,9 +84,3 @@ def video_detail(request, video_id):
 		return render_to_response('video_detail.html', {'video':video, 'video_dir': MEDIA_URL})
 	except PictureFile.DoesNotExist:
 		return HttpResponseRedirect(r"/404.html")
-					
-#for test		
-def display_img(request):
-	#photos = PictureFile.objects.filter(title=img_title)
-	#photos = PictureFile.objects.filter(title__contains=img_title)
-	return HttpResponseRedirect('/media/sample.JPG') 

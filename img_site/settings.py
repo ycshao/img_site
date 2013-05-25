@@ -11,10 +11,11 @@ ADMINS = (
 MANAGERS = ADMINS
 
 CURRENT_PATH = os.path.dirname(__file__)
+SQLITE_DB_PATH = os.path.join(CURRENT_PATH, 'database/sqlite.db')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(CURRENT_PATH, 'database/sqlite.db'),                      # Or path to database file if using sqlite3.
+        'NAME': SQLITE_DB_PATH,                 # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -47,6 +48,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
+
 MEDIA_ROOT = os.path.join(CURRENT_PATH,"media")
 IMG_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'upload/')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -73,6 +75,8 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 	#(CSS_URL, CSS_PATH),
 )
+
+ADMIN_STATIC_ROOT = '/static/admin/'
 
 # List of finder classes that know how to find static files in
 # various locations.
