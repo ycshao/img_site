@@ -6,7 +6,7 @@
 	{% include 'topbar.html' %}
 	<div id="main">
 		<div id="upload_form">
-		<form  method="post" enctype="multipart/form-data" action="/upload/">
+		<form  method="post" enctype="multipart/form-data" action="/upload_multi_imgs/">
 			{% csrf_token %}
 			<label for="multi_file_field">Please choose pictures</label>
 			<input type="file" name="multi_file_field" multiple="multiple">
