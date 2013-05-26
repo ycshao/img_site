@@ -8,7 +8,7 @@ from img_site.img_uploader.models import PictureFile
 from img_site.settings import *
 import pdb
 
-def get_media_type(filename):
+def get_media_type(ext):
 	'''
 	1: picture type
 	2: video type
@@ -21,11 +21,11 @@ def get_media_type(filename):
 	else:
 		return 0
 	
-def is_video_type(filename):
-	return get_media_type(filename) == 2
+def is_video_type(ext):
+	return get_media_type(ext) == 2
 	
-def is_img_type(filename):
-	return get_media_type(filename) == 1
+def is_img_type(ext):
+	return get_media_type(ext) == 1
 	
 #f is request.FILES['file']
 def save_upload_file(f):
