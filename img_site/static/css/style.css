@@ -40,12 +40,10 @@ h1 {
 	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de;
 }
 
-button a {
-	color: white;
+a {
 	text-decoration: none;
 }
-button a:hover {
-	color: white;
+a:hover {
 	text-decoration: none;
 }
 /*

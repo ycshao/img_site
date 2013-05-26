@@ -6,13 +6,16 @@
 	{% include 'topbar.html' %}
 	<div id="main">
 		{% if photos %}
-			{% for photo in photos %}
-				<div class="twitter_frame">
-					<a href="/img_detail/{{ photo.id }}"> 
-						<img src="{{ img_dir }}{{ photo.picFile }}" class="img-polaroid"/> {{ photo.title }}
-					</a>
-				</div>
-			{% endfor %}
+		<ul class="thumbnails">
+		{% for photo in photos %}
+			<li class="span3">
+				<a href="/img_detail/{{ photo.id }}" class="thumbnail">
+					<img src="{{ img_dir }}{{ photo.picFile }}"/>
+					<h4> {{ photo.title}} </h4>
+				</a> 
+			</li>
+		{% endfor %}
+		</ul>
 		{% endif %}
 	</div>
 </body>
