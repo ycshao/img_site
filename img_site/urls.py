@@ -25,8 +25,10 @@ urlpatterns += patterns('img_site.views',
 		
 urlpatterns += patterns('img_site.img_uploader.views',
 	url(r'^$', 'img_list'),
+	url(r'^imgs/$', 'img_list'),
 	url(r'^videos/$', 'video_list'),
 	url(r'^upload/$', 'upload'),
+	url(r'^upload_multi_imgs/$', 'upload_multi_imgs'),
 	url(r'^img_detail/([^\s]+)$', 'img_detail'),
 	url(r'^video_detail/([^\s]+)$', 'video_detail'),
 )

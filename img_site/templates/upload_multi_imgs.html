@@ -8,10 +8,8 @@
 		<div id="upload_form">
 		<form  method="post" enctype="multipart/form-data" action="/upload/">
 			{% csrf_token %}
-			{{ form.as_table }}
-			<!-- 
-			<p>Please choose a picture: <input type="file" name="title" value="File value" id="title"/>
-			-->
+			<label for="multi_file_field">Please choose pictures</label>
+			<input type="file" name="multi_file_field" multiple="multiple">
 			<fieldset>
 				<input type="submit" value="Upload" id="upload_btn"/>
 			</fieldset>

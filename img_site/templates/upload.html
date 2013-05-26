@@ -1,0 +1,22 @@
+<html>
+<head>
+	{% include 'css_links.html' %}
+</head>
+<body>
+	{% include 'topbar.html' %}
+	<div id="main">
+		<div id="upload_form">
+		<form  method="post" enctype="multipart/form-data" action="/upload/">
+			{% csrf_token %}
+			<label for="title">Title for the file:</label>
+			<input type="text" name="title" id="title">
+			<label for="file_field">Please choose a picture/video</label>
+			<input type="file" name="file_field" value="choose a file" id="file_field"/>
+			<fieldset>
+				<input type="submit" value="Upload" id="upload_btn"/>
+			</fieldset>
+		</form>	
+		</div>
+	</div>
+</body>
+</html>
