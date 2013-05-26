@@ -14,9 +14,9 @@ def get_media_type(ext):
 	2: video type
 	0: not supported
 	'''
-	if ext in ['.jpg','.jpeg','.gif','.bmp']:
+	if ext.lower() in ['.jpg','.jpeg','.gif','.bmp']:
 		return 1
-	elif ext in ['.avi','.mp4','.rmvb','.m4v', '.wmv', '.mpeg']:
+	elif ext.lower() in ['.avi','.mp4','.rmvb','.m4v', '.wmv', '.mpeg']:
 		return 2
 	else:
 		return 0
