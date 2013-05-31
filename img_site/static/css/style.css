@@ -5,25 +5,9 @@ global
 */
 #main {
 	margin: 60px auto;
+	width: 800px;
+	display: block;
 }
-
-.frame {
-	border: 1px solid gray;
-	width: 400px;
-	height: 300px;
-	padding: 30px;
-	margin: 10px;
-	
-	float: left;
-	box-shadow: 3px 3px 10px gray;
-}
-.twitter_frame {
-	width: 350px;
-	height: 250px;
-	margin: 20px;
-	float: left;
-}
-
 h1 {
 	display: block;
 	background: #666666;
@@ -39,12 +23,30 @@ h1 {
 	/*multiple NEON effect*/
 	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de;
 }
-
+h2 {
+	text-align: center;
+}
+h4 {
+	text-align: center;
+}
 a {
 	text-decoration: none;
 }
 a:hover {
 	text-decoration: none;
+}
+.frame {
+	border: 1px solid gray;
+	width: 400px;
+	height: 300px;
+	padding: 30px;
+	margin: 10px;
+	
+	float: left;
+	box-shadow: 3px 3px 10px gray;
+}
+.centered {
+	margin: 0px auto;
 }
 /*
 ========================================
@@ -68,7 +70,27 @@ top bar
 	float: right;
 	margin: 0px 20px 0px 5px;/*up, right, down, left*/
 }
-
+/*
+========================================
+columns
+----------------------------------------
+*/
+.column {
+	width: 220px;
+	height: auto;
+	margin: 30px;
+	left:0px;
+	float: left;
+}
+/*
+========================================
+detail frame
+----------------------------------------
+*/
+.detail_frame {
+	display: block;
+	box-shadow: 3px 3px 20px gray;
+}
 /*
 ========================================
 upload form

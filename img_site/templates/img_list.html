@@ -5,12 +5,36 @@
 <body>
 	{% include 'topbar.html' %}
 	<div id="main">
-		{% if photos %}
-		<ul class="thumbnails">
-		{% for photo in photos %}
+		{% if photos_col1 %}
+		<ul class="thumbnails column">
+		{% for photo in photos_col1 %}
 			<li class="span3">
 				<a href="/img_detail/{{ photo.id }}" class="thumbnail">
-					<img src="{{ img_dir }}{{ photo.picFile }}"/>
+					<img data-src="holder.js/200x150" src="{{ img_dir }}{{ photo.picFile }}"/>
+					<h4> {{ photo.title}} </h4>
+				</a> 
+			</li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+		{% if photos_col2 %}
+		<ul class="thumbnails column">
+		{% for photo in photos_col2 %}
+			<li class="span3">
+				<a href="/img_detail/{{ photo.id }}" class="thumbnail">
+					<img data-src="holder.js/200x150" src="{{ img_dir }}{{ photo.picFile }}"/>
+					<h4> {{ photo.title}} </h4>
+				</a> 
+			</li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+		{% if photos_col3 %}
+		<ul class="thumbnails column">
+		{% for photo in photos_col3 %}
+			<li class="span3">
+				<a href="/img_detail/{{ photo.id }}" class="thumbnail">
+					<img data-src="holder.js/200x150" src="{{ img_dir }}{{ photo.picFile }}"/>
 					<h4> {{ photo.title}} </h4>
 				</a> 
 			</li>

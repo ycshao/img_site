@@ -5,9 +5,9 @@
 <body>
 	{% include 'topbar.html' %}
 	<div id="main">
-		<div class="twitter_frame">
-			<img src="{{ img_dir }}{{ photo.picFile }}" class="img-polaroid"/> {{ photo.title }}
-		</div>
+		<img src="{{ img_dir }}{{ photo.picFile }}" class="img-rounded detail_frame centered"> 
+		<h2>{{ photo.title }}</h2>
+		</img>
 	</div>
 </body>
 </html>

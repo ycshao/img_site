@@ -85,12 +85,24 @@ def video_list(request):
 
 def img_list(request):
 	all_objs = PictureFile.objects.all()
-	photo_objs = []
+	photos_col1 = []
+	photos_col2 = []
+	photos_col3 = []
+	i=0
 	for obj in all_objs:
 		path, ext = os.path.splitext(obj.picFile.name)
 		if is_img_type(ext):
-			photo_objs.append(obj)
-	return render_to_response('img_list.html', {'photos':photo_objs, 'img_dir': MEDIA_URL})
+			if i%3 == 0:
+				photos_col1.append(obj)
+			elif i%2 == 1:
+				photos_col2.append(obj)
+			else:
+				photos_col3.append(obj)
+			i = i + 1
+	return render_to_response('img_list.html', {'photos_col1':photos_col1, 
+												'photos_col2':photos_col2,
+												'photos_col3': photos_col3, 
+												'img_dir': MEDIA_URL})
 	
 def img_detail(request, img_id):
 	#to retrieve single object
