@@ -17,7 +17,6 @@ import os
 import os.path
 import sys
 
-#sys.path.append('/Library/Python/2.7/site-packages/')
 sys.path.append(os.path.join(os.path.dirname(__file__)))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'img_site.settings'
 #os.environ.setdefault("DJANGO_SETTINGS_MODULE", "img_site.settings_production")

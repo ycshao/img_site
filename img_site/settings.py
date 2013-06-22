@@ -12,14 +12,23 @@ MANAGERS = ADMINS
 
 CURRENT_PATH = os.path.dirname(__file__)
 SQLITE_DB_PATH = os.path.join(CURRENT_PATH, 'database/sqlite.db')
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': SQLITE_DB_PATH,                 # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        #'ENGINE': , # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+		#'NAME'
+
+		# sqlite3
+		#'ENGINE': 'django.db.backends.sqlite3', 
+        #'NAME': SQLITE_DB_PATH,                 # Or path to database file if using sqlite3.
+
+		# psql
+		'ENGINE': 'django.db.backends.postgresql_psycopg2',
+		'NAME': 'img_site_db',
+        'USER': 'img_site',                      # Not used with sqlite3.
+        'PASSWORD': 'img_site',                  # Not used with sqlite3.
+        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -138,6 +147,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+	'south',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 	'img_site.img_uploader',

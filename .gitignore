@@ -24,3 +24,9 @@ img_site/urls.pyc
 img_site/media/upload/P794-50-72915.jpg
 
 *.jpg
+
+apache/img-error_log
+
+apache/img-access_log
+
+apache/httpd-vhosts.conf
