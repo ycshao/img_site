@@ -60,10 +60,12 @@ USE_TZ = True
 
 MEDIA_ROOT = os.path.join(CURRENT_PATH,"media")
 IMG_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'upload/')
+GIF_DIR = os.path.join(MEDIA_ROOT, 'gif/')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 MEDIA_URL = '/media/'
+GIF_URL = os.path.join(MEDIA_URL, 'gif/')
 IMG_UPLOAD_URL = os.path.join(MEDIA_URL, 'upload/')
 #ADMIN_MEDIA_PREFIX = '/media/admin/'
 
