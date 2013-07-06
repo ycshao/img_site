@@ -31,4 +31,7 @@ urlpatterns += patterns('img_site.img_uploader.views',
 	url(r'^upload_multi_imgs/$', 'upload_multi_imgs'),
 	url(r'^img_detail/([^\s]+)$', 'img_detail'),
 	url(r'^video_detail/([^\s]+)$', 'video_detail'),
+	url(r'^select_imgs/$', 'select_imgs'),
+	url(r'^make_gif/$', 'make_gif'),
+	url(r'^gif_detail/([^\s]+)$', 'gif_detail'),
 )

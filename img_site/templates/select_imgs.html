@@ -1,0 +1,30 @@
+<html>
+<head>
+	{% include 'css_links.html' %}
+</head>
+<body>
+	<div id="main">
+	<form method="post" enctype="multipart/form-data" action="/make_gif/">
+		{% csrf_token %}
+	
+	<h2>Select image candidates for the gif:</h2>
+	<ul class="thumbnails">
+	{% for photo in photos_col %}
+		<li class="span3">
+			<img data-src="holder.js/200x150" src="{{ img_dir }}{{ photo.picFile }}"/>
+			<h4>{{ photo.title}}</h4> 
+			<div class="squaredThree"> 
+				<input type="checkbox" value="{{ photo.id }}" id="{{ photo.id }}" name="selected_items" />
+				<label for="{{ photo.id }}"></label>
+			</div>
+		</li>
+	{% endfor %}
+	</ul>
+
+	<div class="fancy-button">
+		<input type="submit" name="submit" id="submit" value="Make me gif">
+	</div>
+	</form>
+</div>
+</body>
+</html>

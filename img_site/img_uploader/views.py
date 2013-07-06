@@ -6,6 +6,8 @@ from django.core.context_processors import csrf
 from django import forms
 from img_site.img_uploader.models import PictureFile
 from img_site.settings import *
+from img_site.img_uploader.image_utils import *
+import random
 import pdb
 
 def get_media_type(ext):
@@ -119,3 +121,42 @@ def video_detail(request, video_id):
 		return render_to_response('video_detail.html', {'video':video, 'video_dir': MEDIA_URL})
 	except PictureFile.DoesNotExist:
 		return HttpResponseRedirect(r"/404.html")
+
+def select_imgs(request):
+	all_objs = PictureFile.objects.all()
+	photos_col = []
+	i=0
+	for obj in all_objs:
+		path, ext = os.path.splitext(obj.picFile.name)
+		if is_img_type(ext):
+			photos_col.append(obj)
+	c = {'photos_col':photos_col, 'img_dir': MEDIA_URL}
+	c.update(csrf(request))
+	return render_to_response('select_imgs.html', c)
+
+def get_rand_str(n): 
+	al=list('abcdefghijklmnopqrstuvwxyz') 
+	list_len = len(al)
+	str='' 
+	for i in range(n): 
+		index = random.randint(0,list_len) 
+		str = str + al[index] 
+	return str
+
+def make_gif(request):
+	if request.method == 'POST':
+		selected_items = request.POST.getlist('selected_items')  
+		paths = []
+		for img_id in selected_items:
+			photo = PictureFile.objects.get(id=img_id)
+			paths.append(photo.picFile.path)	
+		output_filename = get_rand_str(8) + '.gif'
+		output_path = GIF_DIR + output_filename
+		output_url = r'/media/gif/' + output_filename
+		sortAndCombineImgsToGif(output_path, paths)
+		return HttpResponseRedirect(r'/gif_detail/%s' % output_filename)
+		
+def gif_detail(request, filename):
+	c = {'filename':filename, 'gif_dir':GIF_URL}
+	c.update(csrf(request))
+	return render_to_response('gif_detail.html', c)
