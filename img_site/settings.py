@@ -11,7 +11,6 @@ ADMINS = (
 MANAGERS = ADMINS
 
 CURRENT_PATH = os.path.dirname(__file__)
-SQLITE_DB_PATH = os.path.join(CURRENT_PATH, 'database/sqlite.db')
 
 DATABASES = {
     'default': {
