@@ -139,7 +139,7 @@ def get_rand_str(n):
 	list_len = len(al)
 	str='' 
 	for i in range(n): 
-		index = random.randint(0,list_len) 
+		index = random.randint(0,list_len - 1) 
 		str = str + al[index] 
 	return str
 
